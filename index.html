@@ -9,25 +9,18 @@
       'position:fixed !important;top:0 !important;left:0 !important;width:100vw !important;height:100vh !important;background:#121212 !important;z-index:2147483647 !important;padding:40px !important;box-sizing:border-box !important;font-family:\'Segoe UI\',sans-serif !important;color:#fff !important;text-align:center !important;overflow-y:auto !important;'
     );
 
-    var h1 = document.createElement('h1');
-    h1.style.cssText = 'margin-top:20px;color:#fff;';
-    h1.innerText = 'Hello!';
-    div.appendChild(h1);
+    // Now you can use standard HTML inside this block!
+    div.innerHTML = `
+      <h1 style="margin-top:20px; color:#fff;">Hello!</h1>
+      <h2 style="color:#fff;">Popular 🔥</h2>
+      <a href="https://youtube.com" target="_self" style="color:#1e90ff; font-size:18px; display:block; margin:15px 0; text-decoration:none;">youtube</a>
+      <button id="close-menu-btn" style="position:absolute; top:20px; right:20px; padding:10px 15px; background:#ff4757; color:#fff; border:none; border-radius:5px; cursor:pointer;">Close</button>
+    `;
 
-    var h2 = document.createElement('h2');
-    h2.style.cssText = 'color:#fff;';
-    h2.innerText = 'Popular 🔥';
-  <a href="https://youtube.com" target="_self">youtube</a>
-    div.appendChild(h2);
+    document.body.appendChild(div);
 
-    var closeBtn = document.createElement('button');
-    closeBtn.style.cssText = 'position:absolute;top:20px;right:20px;padding:10px 15px;background:#ff4757;color:#fff;border:none;border-radius:5px;cursor:pointer;';
-    closeBtn.innerText = 'Close';
-    closeBtn.onclick = function() {
+    // Make the close button work after the HTML is injected
+    document.getElementById('close-menu-btn').onclick = function() {
       div.remove();
     };
-
-    div.appendChild(closeBtn);
-    document.body.appendChild(div);
-  })();
 })();
